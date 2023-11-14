@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/styles/animeSearch.css">
+    <title> Anime Search  </title>
+</head>
+
+<body>
+    
+    <section class="animeHero">
+
+        <% if(locals.imageUrl && locals.animeEngName) { %>
+
+        <!-- <a href="<%= animeUrl %>" target="_blank"> Anime Link </a>  -->
+        <div class="imageBg">
+            <img src="<%= imageUrl %>" class="animeImage">
+        </div>
+        
+
+        <% if(locals.animeEngName && locals.animeJapName) { %>
+            <div class="names">
+                <h1 class="headingNames" id="engName"> <span id="engSpan"><%= animeEngName %></span> </h1>
+                <h1 class="headingNames" id="japName"> <span id="japSpan"><%= animeJapName %></span>  </h1>
+            </div>
+        
+            <div class="arrowCTA">
+                
+                    <a href="#features" style=" color: inherit; text-decoration: inherit;" >
+                        <button class="arrowBg">
+                            <i class="fa-solid fa-caret-down arrowIcon" ></i>
+                        </button>
+                    </a>    
+                    
+                
+            </div>
+
+        <% } %>
+
+        <section class="features" id="features">
+
+            <div class="border">
+    
+                <% if(locals.animeRank && locals.animeType && locals.animeNoEpisodes && locals.animeScore && locals.animeScoredBy && locals.animeSynopsis && locals.animeGenres) { %>
+                <div class="topSection">
+    
+                    <div class="rank card"> 
+                        <div class="card1" id="rankCard1">
+    
+                        </div>
+                        <div class="card2"  id="rankCard2">
+                           <span class="typeOfCard">Rank#</span><br>
+                           <%=animeRank%>
+                        </div>
+                    </div>
+    
+                    <div class="score card">
+    
+                        <div class="card1"  id="scoreCard1">
+                        </div>
+                        <div class="card2"  id="scoreCard2">
+                            <span class="typeOfCard">Score</span><br><%=animeScore%> 
+                        </div>
+                         
+    
+                    </div>
+    
+    
+                    <div class="type card">
+    
+                        
+                            <div class="card1"  id="typeCard1">
+                            </div>
+                            <div class="card2"  id="typeCard2">
+                                <span class="typeOfCard">Airing Type</span><br><%=animeType%>
+                            </div>
+                        
+                    </div>
+    
+                    <div class="episodes card">
+    
+                        <div class="card1"  id="episodesCard1">
+                        </div>
+                        <div class="card2"  id="episodesCard2">
+                            <span class="typeOfCard">Episodes</span><br><%=animeNoEpisodes%>
+                        </div>
+                        
+                        
+                    </div>
+                    
+    
+                    <div class="genres card">
+    
+                        <div class="card1"  id="genresCard1">
+                        </div>
+                        <div class="card2"  id="genresCard2">
+                            
+                            <span class="typeOfCard"> Genres </span>
+                            <% for (var i=0;  i<=animeGenres.length; i++) { %>
+                                <li class="genreInfoText"> <%= animeGenres[i]%></li>
+                                <% } %>
+                        </div>
+                        
+    
+                    </div>
+    
+    
+                </div>
+    
+    
+                <div class="bottomSection">
+                    <div class="synopsis card">
+                        <div class="card" id="synopsisCard1">
+    
+                            <% for (var i = 0; i<=animeSynopsis.length; i++) { %>
+                                <%= animeSynopsis[i] %>
+                                <% i+=1 %>
+                                <% if(i%3!=0){ %>
+                                    <%= animeSynopsis[i] %>
+                                    <% } else if(i%3==0){%>
+                                        <br> <br>
+                                    <% } %>
+                                <% } %>
+    
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="arrowCTA2">
+                
+                    <a href="#genAnimeButton" style=" color: inherit; text-decoration: inherit;" >
+                        <button class="arrowBg">
+                            <i class="fa-solid fa-caret-down arrowIcon" ></i>
+                        </button>
+                    </a>    
+                    
+                </div>
+    
+            </div>
+    
+            <form action="/animeSearch" class="generateButton" id="genAnimeButton">
+                
+                    <div class="genButtonHeading"><h2 class="notInterested"> Not interested in it? How about another Anime?</h2></div>
+                    <div class="genButtonDiv"><button class="genAnime"> Generate Anime</button></div>      
+            </form>
+     
+    
+            <% } %>
+    
+        </section>
+        
+        <% } else if(locals.error) {%>
+        <div class="errorDiv">
+            <p> Error <%= error.response.status %> </p>
+        </div>
+        
+        <% } else { %>
+        <p> Sorry couldn't generate Anime Name. </p>
+        <% } %>
+
+    </section>
+
+
+    
+
+    <script src="../mouseMove.js"></script>
+    <script src="https://kit.fontawesome.com/68323e39b9.js" crossorigin="anonymous"></script>
+    
+</body>
+
+
+</html>

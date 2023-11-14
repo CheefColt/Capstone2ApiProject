@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/styles/index.css">
+    <link rel="stylesheet" href="../public/styles/animeIndex.css">
+    <link rel="stylesheet" href="../public/styles/movieIndex.css">
+    <link rel="stylesheet" href="../public/styles/seriesIndex.css">
+    <link rel="stylesheet" href="../public/styles/stickerStyles.css">
+    <title> Main Search </title>
+</head>
+
+<body>
+    
+
+    <div class="wrapper-anime">
+        <!-- style="background-image: url(anime.jpg); background-size: 100%;" -->
+    <!-- style="background-image: url(sky.png);" -->
+        
+        <img src="anime.jpg" class="bgImage" id="animeBgImage"> 
+
+        <div class="imageDiv" id="animeImage" >
+            <img class="image" id="narutoWrapperImage" src="naruto.png">
+        </div>
+
+        <div class="text">
+
+            <div class="headingDiv" id="animeHeadingDiv">
+                <h1 class="heading" id="animeHeading"> Looking for a new anime <br> to Watch? </h1>
+            </div>
+    
+    
+            <div class="generateDiv" id="animeGenerateDiv">
+    
+                <form action="/animeSearch">
+                    <button type="submit" class="generateButton" id="animeGenerateButton">Generate Anime </button>
+                </form>
+    
+            </div>
+
+        </div>
+        
+    
+    </div>
+
+
+
+
+    <div class="wrapper-movie">
+        <!-- style="background-image: url(sky.png);" -->
+            
+            <img src="cinema.jpg" class="bgImage" id="movieBgImage">
+    
+            <div class="text" id="movieText">
+
+    
+                <div class="headingDiv" id="movieHeadingDiv">
+                    <h1 class="heading" id="movieHeading"> In search of a <span id="movieFreshSpan">fresh</span>  <br> cinematic experience?</h1>
+                </div>
+        
+        
+                <div class="generateDiv" id="movieGenerateDiv">
+        
+                    <form action="/movieSearch">
+                        <button type="submit" class="generateButton" id="movieGenerateButton"> Generate movie </button>
+                    </form>
+        
+                </div>
+    
+            </div>
+
+
+            <div class="imageDiv">
+                <img class="image" src="cinema3.jpg" id="movieImage">
+            </div>
+            
+        
+    </div>
+
+
+
+
+
+
+        <div class="wrapper-series">
+            <!-- style="background-image: url(netflix.jpg);" -->
+                
+                <img src="netflix.jpg" class="bgImage" id="seriesBgImage">
+                <div class="imageDiv">
+                    <img class="image" id="seriesImage" src="money-heist.jpg">
+                </div>
+        
+                <div class="text" id="seriesText">
+        
+                    <div class="headingDiv" id="seriesHeadingDiv">
+                        <h1 class="heading" id="seriesHeading"> Searching for your next   <br>  <span id="seriesSpan"></span>TV OBSESSION? </h1>
+                    </div>
+            
+            
+                    <div class="generateDiv" id="seriesGenerateDiv"> 
+            
+                        <form action="/seriesSearch">
+                            <button type="submit"  class="generateButton" id="seriesGenerateButton"> Generate Series </button>
+                        </form>
+            
+                    </div>
+        
+                </div>
+                
+            
+            </div>
+
+    
+    
+    <script src="../scrolling.js"></script>
+</body>
+
+
+</html>

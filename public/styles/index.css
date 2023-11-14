@@ -1,0 +1,195 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+
+:root{
+
+    --yellowColor :  rgb(238, 194, 50);
+    --fontStyle1 : 'Inter', sans-serif;
+}
+
+body{
+
+    /* background-color: rgb(29, 25, 25); */
+    /* background-image: radial-gradient(
+        circle at center,
+        rgb(79, 247, 46) 0.1rem,
+        transparent 0
+      );
+    background-size: 2rem 2rem;
+    background-repeat: round;
+    background-attachment: fixed; */
+    /* background: url("../images/finalFolder/sky.png"); */
+    /* background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed; */
+    
+    
+    /* background: linear-gradient( 0deg,rgb(0, 0, 0) 20%, rgb(88, 86, 86));
+    background-attachment: fixed;
+    background-repeat: no-repeat; */
+    
+    background-color: rgb(41, 39, 39);
+    width: 100vw;
+    height: 100vh;
+    
+    
+}
+
+
+.imageDiv{
+
+    width: 50%;
+    transform: translateY(0rem);
+    rotate: 0deg;
+    animation: imagesAnimation 6s ease-in-out infinite 1s;
+    
+}
+
+.image{
+    box-shadow: 10px 10px 10px black;
+}
+
+@keyframes imagesAnimation {
+
+    0%, 100%{
+        transform: translateY(0rem) rotate3d(0,0,0, 3deg);
+    }
+    50%{
+        transform: translateY(1rem) rotate3d(1,5,0.5, 15deg);
+    }
+}
+
+.text{
+
+    width: 50%;
+    /* animation: rotateText 8s ease infinite; */
+}
+
+/* @keyframes rotateText {
+    0%{
+        transform: rotate3d(1,0,0, -40deg);
+        
+    }
+    50%{
+        transform: rotate3d(1,0,0, 40deg);
+    }
+    100%{
+        transform: rotate3d(1,0,0, -40deg);
+    }
+    
+} */
+
+
+.headingDiv{
+
+}
+
+.heading{
+
+    
+    font-family: 'Archivo';
+    font-weight: 500;
+    font-size: 50px;
+    color: white;
+
+    line-height: 3.5rem;
+
+    /* transform: rotate3d(1,1,0.1, 30deg); */
+    
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+    animation: scalingAnimation  ease-out 0.5s;
+}
+
+
+.generateDiv{
+
+    width: 100%;
+    display: flex;
+
+}
+
+.generateButton{
+
+
+    padding: 30px;
+    width: 100%;
+
+
+    font-family: var(--fontStyle1);
+    font-size: 2rem;
+    font-weight: 500;
+    text-decoration: none;
+    /* letter-spacing: -1px; */
+    /* font-weight: bold; */
+    color: rgb(255, 255, 255);
+    background-color: transparent;
+    cursor: pointer;
+
+    
+    /* box-shadow: -10px 10px 0px white; */
+    border-radius: 1rem;
+    border: 2px solid #f1faee;
+    overflow: hidden;
+
+    /* transition: background-color 0.5s; */
+    animation: fadeAnimation ease 1s;
+
+    /* transform: rotate3d(1,1,0.1, 30deg);
+     */
+    position: relative ;
+    transition: all 0.3s  cubic-bezier(0.6, 0.4, 0, 1) 0s;
+}
+
+
+
+
+.bgImage{
+    position: absolute;
+    height: 100%;
+    z-index: -10;
+
+}
+
+@keyframes scalingAnimation {
+
+    0%{
+        position: relative;
+        scale: 0 ;
+    }
+    100%{
+        position: relative;
+        scale: 1 ;
+
+    }
+    
+}
+
+@keyframes fadeAnimation {
+
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+    
+}

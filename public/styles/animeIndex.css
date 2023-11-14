@@ -1,0 +1,108 @@
+.wrapper-anime{
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: inherit;
+
+    background-attachment: fixed;
+    background-size: 100%;
+
+    overflow: hidden;
+ 
+}
+
+#animeImage{
+    display: flex;
+    
+}
+
+#narutoWrapperImage{
+
+    
+    position: relative;
+    right: 15rem;
+    bottom: 4rem;
+    scale: 0.6;
+
+    background-color: rgb(238, 194, 50);
+    border-radius: 20px;
+    
+
+    animation: narutoImageSlide 1s ease;
+}
+
+#animeBgImage{
+
+    scale: 1.6;
+    opacity: 0.5;
+    
+}
+
+#animeHeadingDiv{
+    position: relative;
+    top: 20%;
+    right: 17%;
+}
+
+#animeHeading{
+    text-align: end;
+    color: rgb(255, 255, 255);
+}
+
+
+#animeGenerateDiv{
+    justify-content: end;
+
+    position: relative;
+    top: 30%;
+    right: 17%;
+    
+}
+
+
+#animeGenerateButton::before{
+    content: "";
+    
+    position: absolute;
+    top: 6.5rem;
+    left:-2px;
+    width: 100%;
+    height: 100%;
+    background-color: var(--yellowColor);
+    z-index: -1;
+    border-radius: inherit;
+    visibility: hidden;
+
+    transition: all 0.3s  cubic-bezier(0.6, 0.4, 0, 1) 0s;
+
+}
+
+#animeGenerateButton:hover::before{
+
+    top: -3px;
+    visibility: visible;
+    z-index: -1;
+}
+
+#animeGenerateButton:active:before{
+    top: 3px;
+    left: 2px;
+    visibility: visible;
+    z-index: -1;
+}
+
+
+@keyframes narutoImageSlide {
+    
+    0%{
+        right: 100rem;
+    }
+    100%{
+        right: 15rem;
+    }
+}
+
+
+
+

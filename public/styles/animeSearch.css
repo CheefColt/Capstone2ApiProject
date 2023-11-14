@@ -1,0 +1,973 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Spline+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Athiti:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+:root{
+    --animation_rotate: 0,5,-2, -2.05turn;
+    --animeHeroBackgroundColor: black;
+    --animeImageCardColor: #43eee0 ;
+    --animeTextColor: rgb(255, 184, 53);
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    /* background-color: #2f2f2f; */
+    /* background-color: rgb(123, 49, 49); */
+    color: white;
+
+    height: 100vh;
+    width: 100vw;
+}
+
+
+/* Hero Section Starts */
+
+.animeHero{
+
+    height: 100vh;
+    width: 100vw;
+
+    background-color: var(--animeHeroBackgroundColor);
+
+    position: relative;
+    perspective: 1000px;
+
+    background-attachment: fixed; 
+}
+
+.animeImage{
+    
+    border-radius: inherit;
+
+}
+
+
+.imageBg{
+
+    position: absolute;
+    bottom:  calc(100vh / 40 * 10);
+    left: 42%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 1;
+
+    min-height: 21.5rem;
+    min-width: 15.5rem;
+    /* background: radial-gradient(circle,rgb(253, 238, 27) 50%, rgb(1, 111, 255)); */
+    background: radial-gradient(circle, #ffaa00 50%, #ffea00 ) ;
+    border-radius: 1rem;
+    transform: rotate3d(var(--animation_rotate));
+    
+
+    animation: animeImgAni 3s cubic-bezier(0.175, 0.885, 0.32, 1.5), 
+    animeImgTranslateAni 5s  cubic-bezier(1, 1.6, 1, 1.06) 3s infinite,
+    animeBgAnimation 5s  cubic-bezier(1, 1.6, 1, 1.06) 3s infinite ;
+
+}
+
+
+@keyframes animeImgAni {
+
+    0%{
+        bottom: -40%;
+        transform: rotate3d(0,0,0, 0turn);
+        
+    }
+    100%{
+
+        bottom: calc(100vh / 40 * 10);
+        transform: rotate3d(var(--animation_rotate));
+        
+    }
+    
+}
+
+@keyframes animeImgTranslateAni {
+    
+    0%, 100%{
+        /* box-shadow: 10px 10px 10px rgb(56, 215, 254) ; */
+        transform: translateY(0rem) rotate3d(var(--animation_rotate));
+    }
+    50%{
+        /* box-shadow: 10px 10px 10px rgb(87, 255, 162) ; */
+        transform: translateY(0.5rem) rotate3d(var(--animation_rotate));
+    }
+
+}
+
+.names{
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: space-between;
+
+    overflow: hidden;
+}
+
+.headingNames{
+
+    font-size: 4rem;
+    font-family: 'Inter';
+    
+    color: rgb(192, 185, 185);
+    transition: all 1s ease;
+    cursor: auto;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+
+    perspective: 1000px;
+
+}
+
+
+#engName{
+
+    width: 40%;
+
+    position: relative;
+
+
+    animation: engNameAnimation 3s cubic-bezier(0.175, 0.885, 0.32, 1.5);
+}
+
+
+@keyframes engNameAnimation {
+    0%{
+        right: -200rem;
+    }
+    100%{
+        right: 0rem;
+    }
+    
+}
+
+#japName{
+
+    width: 40%;
+
+    position: relative;
+
+    animation: japNameAnimation 3s cubic-bezier(0.175, 0.885, 0.32, 1.5);
+}
+
+@keyframes japNameAnimation {
+    0%{
+        left: -200rem;
+    }
+    100%{
+        left: 0rem;
+    }
+}
+
+span{
+
+    display: inline-b;
+    transition: all 1s ease;
+    opacity: 0.5;
+}
+
+#engSpan:hover{
+    transform: rotate3d(1,1,-1, 15deg);
+    opacity: 1;
+    color: var(--animeTextColor);
+}
+
+#japSpan:hover{
+    transform: rotate3d(1,-1,1, 15deg);
+    opacity: 1;
+    color: var(--animeTextColor);
+}
+
+
+
+.arrowCTA{
+
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% / 15);
+
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    animation: opacityAnimation 3s ease forwards 3s;
+}
+
+.arrowBg{
+
+    padding: 0.7rem;
+    height: 7vmin ;
+    width: 7vmin;
+    border: solid var(--animeTextColor);
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: white;
+    background-color: transparent;
+
+    overflow: hidden;
+    transition: all 1s ease;
+
+    position: relative;
+}
+
+.arrowBg:hover{
+    cursor: pointer;
+    /* background-color: rgb(236, 202, 202); */
+}
+
+.arrowBg:hover > .arrowIcon{
+
+    opacity: 1;
+    cursor: pointer;
+    animation: changePosition 2s ease infinite;
+}
+
+/* .arrowIcon:hover {
+
+    
+} */
+
+@keyframes changePosition  {
+    
+    0%, 100%{
+        transform: translateY(0);
+        font-size: 1.5rem;
+        color: var(--animeTextColor);
+    }
+    25%{
+        transform: translateY(-50%);
+        font-size: 1.5rem;
+        color: var(--animeTextColor);
+    }
+    50%{
+        transform: translateY(50%);
+        font-size: 1.5rem;
+        color: var(--animeTextColor);
+    }
+}
+
+@keyframes opacityAnimation {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 0.9;
+    }
+}
+
+
+
+
+/* Hero Section Ends */
+
+
+/* Features Section Starts */
+
+.features{
+
+    height: 220vh;
+    width: 100vw;
+
+    /* background-color: #423e3e; */
+    background-color: black;
+    display: flex;
+    align-items: start;
+    flex-direction: start;
+    justify-content: center;
+
+    position: relative;
+}
+
+.border{
+
+    height: 130vh;
+
+    width: 90vw;
+
+    position: absolute;
+    /* top: calc(240vh / 400 *10); */
+    top: calc(220vh / 30);
+
+    box-sizing: border-box;
+    border: 2px solid white;
+    padding: 3rem;
+    background-color: transparent;
+    border-radius: 1rem;
+
+    color: white;
+}
+
+/* .topSection{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    
+
+    gap: 1rem;
+
+    height: 30%;
+
+    padding: 2rem;
+} */
+
+.topSection{
+
+    display: grid;
+    grid-template-rows: repeat(auto-fit, minmax(calc(100vw / 60 *10), 10rem));
+    grid-template-columns: repeat(auto-fit, minmax(calc(90vw / 60 *10), 10rem));
+    justify-content: center;
+    align-content: center   ;
+
+    gap: 1rem;
+
+    min-height: 30%;
+    max-height: 60%;
+
+    padding: 2rem;
+}
+
+@media (max-width : 1141px){
+
+    .imageBg{
+        scale: 0.8;
+        left: 38%;
+    }
+
+    .headingNames{
+        font-size: 3rem;
+    }
+
+}
+
+@media (max-width : 950px){
+
+    .imageBg{
+        scale: 0.7;
+    }
+}
+
+@media (max-width : 750px){
+
+    #engName{
+        width: 50%;
+    }
+
+    #japName{
+        width: 50%;
+    }
+
+    .imageBg{
+        bottom:  calc(100vh / 17 * 10);
+        scale: 0.6;
+    }
+
+    @keyframes animeImgAni {
+
+        0%{
+            bottom: -40%;
+            transform: rotate3d(0,0,0, 0turn);
+            
+        }
+        100%{
+    
+            bottom: calc(100vh / 17 * 10);
+            transform: rotate3d(var(--animation_rotate));
+            
+        }
+        
+    }
+
+    .border{
+        padding: 1rem;
+    }
+
+    .arrowCTA{
+        bottom: 25%;
+    }
+
+    .notInterested{
+        font-size: 2.2rem !important;
+    }
+
+    .genAnime{
+        width: 50% !important;
+        font-size: 1.4rem !important;
+    }
+}
+
+@media (max-width : 850px){
+
+    .imageBg{
+        left: 35%;
+    }
+}
+
+
+@media (max-width : 1370px){
+
+
+    .genreInfoText{
+    
+        font-size: 1rem;
+    }
+
+}
+
+
+@media (max-width : 1141px) and (min-width: 750px){
+
+    .notInterested{
+        font-size: 2.6rem !important;
+    }
+    .genAnime{
+        width: 60% !important;
+        font-size: 1.7rem !important;
+    }
+    .border{
+
+        height: 150vh;
+    }
+
+    .topSection{
+
+        padding: 1rem;
+    }
+    
+    .genreInfoText{
+    
+        font-size: 0.8rem;
+    }
+
+    .typeOfCard{
+        font-size: 0.5rem;
+    }
+}
+
+@media (max-width : 749px) and (min-width : 555px){
+    
+    .features{
+        height: 240vh;
+    }
+
+    .border{
+
+        height: 180vh;
+    }
+}
+
+@media (max-width : 555px){
+    
+    
+    .imageBg{
+        bottom:  calc(100vh / 23 * 10);
+        scale: 0.6;
+    }
+
+    @keyframes animeImgAni {
+
+        0%{
+            bottom: -40%;
+            transform: rotate3d(0,0,0, 0turn);
+            
+        }
+        100%{
+    
+            bottom: calc(100vh / 23 * 10);
+            transform: rotate3d(var(--animation_rotate));
+            
+        }
+        
+    }
+
+    .animeHero{
+        height: 80vh;
+    }
+    .topSection{
+
+        padding: 1rem;
+    }
+    .headingNames{
+        font-size: 2.5rem;
+    }
+    .features{
+        height: 230vh;
+    }
+    .border{
+        height: 150vh;
+    }
+
+    #synopsisCard1{
+        align-items: start !important;
+        font-size:  1.2rem !important;
+    }
+
+    .bottomSection{
+        height: 50% !important;
+    }
+
+    .arrowCTA{
+        bottom: 30%;
+    }
+
+    .notInterested{
+        font-size: 1.9rem !important;
+    }
+
+    .genAnime{
+        height: 75px !important;
+        width: 50% !important;
+        font-size: 1rem !important;
+    }
+
+}
+
+@media (max-width : 485px){
+    
+    .imageBg{
+        left: 25%;
+    }
+    .headingNames{
+        font-size: 2rem;
+    }
+    .features{
+        height: 240vh;
+    }
+    .border{
+        height: 200vh;
+    }
+
+    #synopsisCard1{
+        align-items: start !important;
+        font-size:  1.1rem !important;
+    }
+
+    .topSection{
+        height: 40% !important;
+    }
+
+    .bottomSection{
+        height: 50% !important;
+    }
+
+    .generateButton{
+        bottom: 1% !important;
+    }
+}
+
+@media (max-width : 447px){
+    
+    .genreInfoText{
+    
+        font-size: 0.65rem;
+    }
+    .headingNames{
+        font-size: 2rem;
+    }
+    .features{
+        height: 270vh;
+    }
+    .border{
+        height: 240vh;
+    }
+
+    #synopsisCard1{
+        align-items: start !important;
+        font-size:  1.1rem !important;
+    }
+
+    .topSection{
+        padding: 1rem;
+        height: 50% !important;
+    }
+
+    .bottomSection{
+        height: 40% !important;
+    }
+
+}
+
+@media (max-width : 390px){
+
+    .imageBg{
+        left: 22%;
+    }
+
+    .notInterested{
+        font-size: 1.4rem !important;
+    }
+
+    .genAnime{
+        height: 75px !important;
+        width: 70% !important;
+        font-size: 1rem !important;
+    }
+
+}
+
+
+.rank, .score, .type, .episodes, .genres{
+
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    border-radius: 0.5rem;
+    font-weight: 500;
+
+}
+/* .rank{
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+
+    position: relative;
+}
+
+.rank::after{
+
+    content: '';
+
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    z-index: -1;
+
+    position: absolute;
+    top: calc(0% - -3px);
+    left: calc(0% - -3px);
+    background-color: rgb(247, 64, 64);
+} */
+
+.card1{
+
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    z-index: 0;
+
+    position: absolute;
+    top: calc(0% - -10px);
+    left: calc(0% - -10px);
+
+}
+
+.card2{
+
+    position: absolute;
+    z-index: 1;
+    border: 2px solid white;
+
+    height: 100%;
+    width: 100%;
+
+    display: flex  ;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Inter';
+
+    box-shadow: 5px 5px 10px black;
+    border-radius: inherit;
+
+    transition: all 0.5s ease;
+}
+
+.card:hover >.card2{
+
+    transform: translateX(calc(0% - -10px));
+    box-shadow: 0px 5px 10px black;
+    transition: all 0.1s ease;
+}
+
+.card:active > .card2{
+
+    box-shadow: none;
+    text-shadow: none;
+    top: calc(0% - -10px);
+    transition: all 0.1s ease;
+}
+
+.card:active > .card1{
+
+    box-shadow: 2px 2px 10px black;
+}
+
+
+#rankCard1{
+    background-color:  #fb3640;
+}
+
+#scoreCard1{
+    background-color: azure;
+}
+
+#typeCard1{
+    background-color: bisque;
+}
+
+#episodesCard1{
+    background-color: rgb(201, 255, 196);
+}
+
+#genresCard1{
+    background-color: rgb(255, 196, 255);
+}
+
+
+
+#rankCard2{
+    
+    font-size: 2rem;
+}
+
+#scoreCard2{
+    color: black;
+    font-size: 2rem;
+}
+
+#typeCard2{
+    color: brown;
+    font-size: 2rem;
+}
+
+#episodesCard2{
+   color: brown;
+   font-size: 2rem;
+}
+
+#genresCard2{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    list-style-type: none;
+    text-decoration: none;
+
+    font-size: 1.3rem;
+    color: brown;
+}
+
+
+.typeOfCard{
+
+    color: black;
+    position: absolute;
+    font-size: 1.2rem;
+    top: calc(100% / 10);
+
+}
+
+.bottomSection{
+
+    height: 55%;
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+    /* background-color: rgb(220, 233, 99);
+    color: black;
+    border: 2px solid white;
+    border-radius: inherit;
+    font-size: 1.1rem;
+
+    box-sizing: border-box;
+    padding: 2rem; */
+}
+
+.synopsis{
+
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    border-radius: 0.5rem;
+    
+}
+
+#synopsisCard1{
+
+    position: absolute;
+    box-sizing: border-box;
+    z-index: 0;
+
+    display: flex;
+    align-items: center;
+    width: inherit;
+    height: inherit;
+    /* background-color: rgb(220, 233, 99); */
+    color: black;
+    line-height: 120%;
+    font-family: 'Instrument Sans';
+    font-weight: 400;
+    font-size:  1.5rem;
+    /* text-align: center; */
+    background-color: #f6f460;
+    border-radius: 0.5rem;
+
+    padding: 1rem;
+}
+
+
+
+.generateButton{
+    
+    height: 200px;
+    width: 100%;
+    position: absolute;
+    bottom: calc(100% / 90 * 10);
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.notInterested{
+    font-size: 3rem;
+}
+.genButtonHeading{
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Archivo';
+
+    position: relative;
+    left: 10%;
+}
+
+.genButtonDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* transition: all 1s cubic-bezier(0.6, 0.4, 0, 1) 0s; */
+    
+}
+
+.genAnime{
+
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 2rem;
+    width: 40%;
+    height: 100px;
+
+    background-color: transparent;
+    z-index: 0;
+    position: relative;
+    border-radius: 1rem;
+    color: white;
+
+    overflow: hidden;
+    cursor: pointer;
+
+    border: 2px solid white;
+}
+
+.genAnime::before{
+    content: "";
+
+    position: absolute;
+    top: 6.5rem;
+    left: 0px;
+
+    z-index: -1;
+    background-color: rgb(238, 194, 50);
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+
+
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.6, 0.4, 0, 1) 0s;
+}
+
+.genAnime:hover::before{
+
+    top: -3px;
+    visibility: visible;
+    z-index: -1;
+}
+
+.genAnime:active::before{
+
+    top: 3px;
+    visibility: visible;
+    z-index: -1;
+}
+
+
+.arrowCTA2{
+
+    position: absolute;
+    left: 50%;
+    bottom: 3%;
+
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    /* animation: opacityAnimation 3s ease forwards 3s; */
+}
+
+.arrowBg{
+
+    padding: 0.7rem;
+    height: 7vmin ;
+    width: 7vmin;
+    border: solid var(--animeTextColor);
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: white;
+    background-color: transparent;
+
+    overflow: hidden;
+    transition: all 1s ease;
+
+    position: relative;
+}
+
+.arrowBg:hover{
+    cursor: pointer;
+    /* background-color: rgb(236, 202, 202); */
+}
+
+.arrowBg:hover > .arrowIcon{
+
+    opacity: 1;
+    cursor: pointer;
+    animation: changePosition 2s ease infinite;
+}

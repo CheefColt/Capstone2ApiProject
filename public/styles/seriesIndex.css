@@ -1,0 +1,126 @@
+.wrapper-series{
+    display: flex;
+    height: inherit;
+
+    position: relative;
+    overflow: hidden;
+}
+
+#seriesImage{
+    position: relative;
+    top: 15%;
+    left: -8rem;
+
+    height: 450px;
+    border-radius: 20px;
+
+    animation: seriesImageAnimation 1s ease;
+    
+}
+
+#seriesBgImage{
+    scale: 2.0;
+    opacity: 0.7;
+    filter: blur(1px), brightness(120%);
+}
+
+
+@keyframes seriesImageAnimation {
+
+    0%{
+        left: -100rem;
+    }
+    100%{
+        left: -8rem;
+    }
+    
+}
+
+#seriesText{
+    display: flex;
+    flex-direction: column;
+}
+
+#seriesHeadingDiv{
+    position: relative;
+    top: 20%;
+    text-align: end;
+
+}
+
+#seriesGenerateDiv{
+    position: relative;
+    top: 30%;
+
+    justify-content: end;
+}
+
+#seriesHeadingDiv, #seriesGenerateDiv{
+    position: relative;
+    right: 17%;
+}
+
+#seriesSpan{
+
+    animation: seriesTextAnimation 5s ease infinite;
+}
+
+
+#seriesGenerateButton::before{
+    content: "";
+    
+    position: absolute;
+    top: 6.5rem;
+    left:-2px;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 46, 46);
+    z-index: -1;
+    border-radius: inherit;
+    visibility: hidden;
+
+    transition: all 0.3s  cubic-bezier(0.6, 0.4, 0, 1) 0s;
+
+}
+
+#seriesGenerateButton:hover::before{
+
+    top: -3px;
+    visibility: visible;
+    z-index: -1;
+}
+
+#seriesGenerateButton:active:before{
+    top: 3px;
+    left: 2px;
+    visibility: visible;
+    z-index: -1;
+}
+
+@keyframes seriesTextAnimation {
+
+    0%{
+        color: rgb(237, 74, 15)
+    }
+    /* 14.28%{
+        color: rgb(75, 0, 130)
+    } */
+    /* 28.56%{
+        color: rgb(0, 0, 255)
+    } */
+    /* 42.84%{
+        color: rgb(0, 255, 0)
+    } */
+    57.12%{
+        color: rgb(255, 255, 0)
+    }
+    71.4%{
+        color: rgb(255, 127, 0)
+    }
+    /* 85.68%{
+        color: rgb(255, 0 , 0)
+    } */
+    100%{
+        color: rgb(237, 74, 15)
+    }
+}
